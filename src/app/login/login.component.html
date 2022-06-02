@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login Page</h1>
+          <h5 style="color: red;">(*)mandatory fields are required</h5>
+        </div>
+          <div class="text-center">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <mat-form-field appearance="outline" style="width: 400px;">
+                <mat-label>Enter Email ID</mat-label>
+                <mat-icon matSuffix>email</mat-icon>
+                <input formControlName="email" matInput placeholder="Enter Email ID">
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 400px;">
+                <mat-label>Enter Password</mat-label>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input formControlName="password" [type]="hide ? 'password' : 'text'" matInput placeholder="Enter Password">
+              </mat-form-field>
+              <button mat-raised-button color="primary" [disabled]="!loginForm.valid" style="color: black;">Login</button>
+            </form>
+          </div>
+        <p>New user <a style="color: black; margin-top:10px" routerLink="/signup">Click to signup!!</a></p>
+      </div>
+    </div>
+  </div>
+</div>

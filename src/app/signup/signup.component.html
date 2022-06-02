@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Signup Page</h1>
+          <h5 style="color: red;">(*)mandatory fields are required</h5>
+        </div>
+          <div class="text-center">
+            <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+              <div>
+                <mat-form-field appearance="outline" style="width: 400px;">
+                  <mat-label>Enter Full Name</mat-label>
+                  <mat-icon matSuffix>person</mat-icon>
+                  <input formControlName="fullname" matInput placeholder="Enter Full Name">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline" style="width: 400px;">
+                  <mat-label>Enter Mobile Number</mat-label>
+                  <mat-icon matSuffix>phone</mat-icon>
+                  <input formControlName="mobile" matInput placeholder="Enter Mobile Number">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline" style="width: 400px;">
+                  <mat-label>Enter Email ID</mat-label>
+                  <mat-icon matSuffix> email</mat-icon>
+                  <input formControlName="email" matInput placeholder="Enter Email ID">
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline" style="width: 400px;">
+                  <mat-label>Enter Password</mat-label>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input formControlName="password" [type]="hide ? 'password' : 'text'" matInput placeholder="Enter Password">
+                </mat-form-field>
+              </div>
+              <button mat-raised-button [disabled]="!signupForm.valid" color="primary" style="color: black;">Sign Up</button>
+            </form>
+          </div><br>
+          <p>Already registered<a style="color: black;" routerLink="/login"> Click to Login!!</a></p>
+      </div>
+    </div>
+  </div>
+</div>
